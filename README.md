@@ -3,7 +3,7 @@ ReactJS FullStack Tutorial
 
 ## Content:
 
-1. React Introduction
+1. Introduction
 2. Hello World Application
 3. Introduction to JSX
 4. Understaing Props and State
