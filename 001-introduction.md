@@ -45,8 +45,7 @@ Note: User-Defined Components Must Be Capitalized
 
 When an element type starts with a lowercase letter, it refers to a built-in component like <div> or <span> and results in a string 'div' or 'span' passed to React.createElement. Types that start with a capital letter like <Foo /> compile to React.createElement(Foo) and correspond to a component defined or imported in your JavaScript file.
 
-```
-
+```javascript
 import React from 'react';
 
 // Wrong! This is a component and should have been capitalized:
@@ -61,7 +60,7 @@ function HelloWorld() {
 }
 ```
 To fix this, we will rename hello to Hello and use <Hello /> when referring to it:
-```
+```javascript
 import React from 'react';
 
 // Correct! This is a component and should be capitalized:
@@ -76,7 +75,7 @@ function HelloWorld() {
 }
 
 ```
-See link [link](https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
+See this [link](https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
 We recommend naming components with a capital letter. If you do have a component that starts with a lowercase letter, assign it to a capitalized variable before using it in JSX.
 
