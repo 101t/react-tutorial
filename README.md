@@ -8,7 +8,7 @@ ReactJS FullStack Tutorial
 3. [Introduction to JSX](https://github.com/101t/react-tutorial/blob/master/003-introduction-to-jsx.md)
 4. [Understaing Props and State](https://github.com/101t/react-tutorial/blob/master/004-understanding-props-and-state.md)
 5. [Lifecycle Methods](https://github.com/101t/react-tutorial/blob/master/005-lifescycle-methods.md)
-6. Handle Events
+6. [Handle Events](https://github.com/101t/react-tutorial/blob/master/006-handle-events.md)
 7. Composing Components
 8. Capstone
 
