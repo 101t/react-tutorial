@@ -81,7 +81,7 @@ npm install --save webpack-dev-server
 npm install --save webpack-cli
 npm install --save-dev html-webpack-plugin
 ```
-Now we need to install babel package by install these packages: **babel-core**, **babel-loader**, **babel-preset-env**, and **babel-preset-react**.
+Now we need to install babel package by install these packages: **babel-core**, **babel-loader**, **babel-preset-env**, **babel-preset-es2015**, and **babel-preset-react**.
 ```sh
 npm install --save-dev babel-core
 npm install --save-dev babel-loader

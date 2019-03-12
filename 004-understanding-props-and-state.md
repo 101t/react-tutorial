@@ -90,7 +90,7 @@ this.setState({
 console.log(this.state.count) // still prints 0
 ```
 Also if you want to update state using the current state value **always use** the updater function inside **setState** instead of passing object:
-```
+```javascript
 // Don't use this, if you are using the current state value to update the state, never use this.state directly inside setState
 console.log(this.state.count);
 this.setState({count: this.state.count + 1});
