@@ -40,7 +40,7 @@ export default StateApp;
 **state** is just an object, if you notice the constructor, we initialize the state with **head**, **body**, and **count**, and we used it in render function as `{this.state.head}`, `{this.state.body}`, and `{this.state.count}`.
 
 We initialized the **state** in constructor but how to update it? React provides a function called **setState**, you should always use **setState** function to update state and **never mutate it directly**.
-```
+```javascript
 // never do this
 this.state.count = 23;
 
@@ -143,7 +143,7 @@ class ChildClass extends React.Component {
 
 **Warning:** One thing you must remember regarding **props** is that you should **never mutate props**, React will complain if you do, like something given to the component by it's parent - accept with love and don't try to mess around with things to make your parent angry!
 
-```
+```javascript
 function ChildFunction(props){
 	// Never do this
 	props.someText = "I want to mutate props";
