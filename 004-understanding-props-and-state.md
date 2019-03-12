@@ -15,12 +15,11 @@ import React from 'react';
 
 class StateApp extends React.Component {
 	constructor(props){
-		super(props){
-			this.state = {
-				head: "This is the header",
-				body: "Content of body",
-				count: 34
-			}
+		super(props)
+		this.state = {
+			head: "This is the header",
+			body: "Content of body",
+			count: 34
 		}
 	}
 	render() {
