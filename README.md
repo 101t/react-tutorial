@@ -9,6 +9,5 @@ ReactJS FullStack Tutorial
 4. [Understaing Props and State](https://github.com/101t/react-tutorial/blob/master/004-understanding-props-and-state.md)
 5. [Lifecycle Methods](https://github.com/101t/react-tutorial/blob/master/005-lifescycle-methods.md)
 6. [Handle Events](https://github.com/101t/react-tutorial/blob/master/006-handle-events.md)
-7. Composing Components
-8. Capstone
-
+7. [Composing Components](https://github.com/101t/react-tutorial/blob/master/007-composing-components.md)
+8. to be continued ...
