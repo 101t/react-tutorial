@@ -8,5 +8,5 @@
 ### Required knowledges:
 
 1. state variables in Class Component
-2. event handling in ReactJS `onClinck`
+2. event handling in ReactJS `onClick()`
 3. basic reactjs knowledge
