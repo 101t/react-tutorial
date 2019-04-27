@@ -1,7 +1,7 @@
 ### Counter using Reactjs
 
 <p align="center">
-	<img src="https://github.com/101t/react-tutorial/blob/master/homeworks/img/python.png" ><br>
+	<img src="https://github.com/101t/react-tutorial/blob/master/homeworks/img/counter-plain.png" ><br>
 	Counter with up and down buttons
 </p>
 
