@@ -10,4 +10,5 @@ ReactJS FullStack Tutorial
 5. [Lifecycle Methods](https://github.com/101t/react-tutorial/blob/master/005-lifescycle-methods.md)
 6. [Handle Events](https://github.com/101t/react-tutorial/blob/master/006-handle-events.md)
 7. [Composing Components](https://github.com/101t/react-tutorial/blob/master/007-composing-components.md)
-8. to be continued ...
+8. [Route React](https://github.com/101t/react-tutorial/blob/master/008-route-react.md)
+9. to be continued ...
