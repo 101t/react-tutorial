@@ -101,10 +101,11 @@ React Router uses the `path-to-regexp` package to determine if a route element's
 
 When the route's path matches, a match object with the following properties will be created:
 
-| url     | the matched part of the current location's pathname                                   |
-| path    | the route's path                                                                      |
-| isExact | path === pathname                                                                     |
-| params  | an object containing values from the pathname that were captured by `path-to-regexp`  |
+-------- | --------------------------------------------------------------------------------------
+ url     | the matched part of the current location's pathname                                   
+ path    | the route's path                                                                      
+ isExact | path === pathname                                                                     
+ params  | an object containing values from the pathname that were captured by `path-to-regexp`  
 
 You can use this route tester to play around with matching routes to URLs.
 
@@ -113,10 +114,11 @@ You can use this route tester to play around with matching routes to URLs.
 ### Creating routes
 `<Route>` can be created anywhere inside of the router, but often it makes sense to render them in the same place, you can use the `<Switch>` component to group `<Route>`, The `<Switch>` will iterate over its children elements (the routes) and only render the first one that matches the current pathname.
 
-| /          | the home page    |
-| /posts     | the posts page   |
-| /posts/:id | a post item page |
-| /profile   | profile page     |
+----------- | ----------------
+ /          | the home page   
+ /posts     | the posts page  
+ /posts/:id | a post item page
+ /profile   | profile page    
 
 In order to match a path in our application, all that we have to do is create a `<Route>` element with the path prop we want to match.
 
