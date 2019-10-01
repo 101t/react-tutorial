@@ -11,4 +11,6 @@ ReactJS FullStack Tutorial
 6. [Handle Events](https://github.com/101t/react-tutorial/blob/master/006-handle-events.md)
 7. [Composing Components](https://github.com/101t/react-tutorial/blob/master/007-composing-components.md)
 8. [Route React](https://github.com/101t/react-tutorial/blob/master/008-route-react.md)
-9. to be continued ...
+9. [React with Redux](https://github.com/101t/react-tutorial/blob/master/009-react-with-redux.md)
+10. [Questions about redux and flux](https://github.com/101t/react-tutorial/blob/master/010-questions-about-redux-and-flux.md)
+11. to be continued ...

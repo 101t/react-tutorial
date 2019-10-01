@@ -1,50 +1,123 @@
 ## React with Redux
 
-### Common Questions/Answers:
+Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience.
 
-#### 1. Why use Redux with React?
+The problem is when we write complex react app it become complex to manage state object when react app grows to multiple components.
 
-**Redux** works especially well with liberaries like **React** because they let you describe UI as a function of state, and **Redux** emits state updates in response to actions.
+<p align="center"><img src="https://github.com/101t/react-tutorial/blob/master/static/redux/with-without-redux.png" ></p>
 
-#### 2. Do you need to use Redux with React?
+```jsx
+export default class Profile extends Component {
+  constructor() {
+    super()
+    this.state = {user: {}, orgs: []}
+  }
+  render() {
+    const { user, orgs } = this.state;
+    return (
+      <div>
+      .
+      .
+      .
+      </div>
+    )
+  }
+}
+```
+Essentially Redux allows us to build React App as you are but delegate all the state and actions to Redux, with redux we can isolate store having state so all components can talk to it get required state object from it
 
-**Redux** is a state management tool, while it's mostly used with **React**, it can be used with any other JavaScript framework or library, with **Redux**, the state of your application is kept in a store and each component can access any state that it needs from this store.
+### Three fundamental Principles:
 
-#### 3. What is Redux used for?
+1. Single source of truth:
+The state of your whole application is stored in an object tree within a single store, this makes it easy to create universal apps.
+```jsx
+console.log(store.getState())
 
-**Redux** as JavaScript library for managing and maintaining application state usually **used in** conjunction with other frameworks to build applications, also it has main terms:
+/* Prints
+{
+  visibilityFilter: 'SHOW_ALL',
+  todos: [
+    {
+      text: 'Consider using Redux',
+      completed: true,
+    },
+    {
+      text: 'Keep all state in a single tree',
+      completed: false
+    }
+  ]
+}
+*/
+```
 
-* **Store**: Refers to the application state container for the entire application
-* **Action**: Refers to an explicit event that occurs within a Redux application that will impact application state
-* **Container**: A React component that subscribes to specific *Reducer* updates and propagates data to other *React Components* known as presentation components
-* **Immutability**: Refers to an object that cannot be changed once it has been created
+2. State is read-only:
+The only way to change the state is to emit an action, an object describing what happened, this ensures that neither the views nor the network callbacks will ever write directly to the state, all the changes are centralized and happen one by one in a strict order.
+```jsx
+store.dispatch({
+  type: 'COMPLETE_TODO',
+  index: 1
+})
 
-#### 4. What is Dispatch in react redux?
+store.dispatch({
+  type: 'SET_VISIBILITY_FILTER',
+  filter: 'SHOW_COMPLETED'
+})
+```
 
-As the second argument passed in to correct, `mapDispatchToProps` is used for **dispatching** actions to the store, **dispatch** is a function of the **Redux** stor, **React Redux** gives you two ways to let components **dispatch** actions. By default, a connected component receives `props.dispatch` and can **dispatch** actions itself.
+3. Changes are made with pure functions:
+To specify how the state tree is transformed by actions, you write pure reducer, Reducer are just a pure function that take the previous state and an action, and return the next state, remember to return the new state objects, instead of mutating the previous state.
+You can start with a single reducer, and as your app grows, split it off smaller reducers that manage specific parts of the state tree, reducer are just a function that control the order which they are called, pass additional data, or even make reusable reducers for common tasks such as pagination.
 
-#### 5. What is Flux and Redux in React?
+```jsx
+import { combineReducers, createStore } from 'redux'
 
-**Flux** is a pattern and **Redux** is a library. In **Flux**, an action is a simple JavaScript object, and that's the default case in **Redux** too, but when using **Redux** middleware, actions can also be functions and promises, with **Flux** it is a convention to have multiple stores per application, each store is a singleton object.
+function visibilityFilter(state = 'SHOW_ALL', action) {
+  switch(action.type){
+    case 'SET_VISIBILITY_FILTER':
+      return action.filter
+    default:
+      return state
+  }
+}
 
-#### 6. Do you really need Redux?
+function todos(state = [], action) {
+  switch(action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
+    case 'COMPLETED_TODO':
+      return state.map((todo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, todo, {
+              completed: true
+            })
+        }
+        return todo
+      })
+    default:
+      return state
+  }
+}
 
-**Redux** is a good fit for a small applications, it actually doesn't require a lot of boiler code, but gives much. 
-**Redux** is a good fit for a huge application, as long you control every part, you can test and reuse every part.
+const reducer = combineReducers({ visibilityFilter, todos })
+const store = createStore(reducer)
+```
 
-#### 7. What does react redux connect do?
+We will have react app which will talk to redux for triggering action and getting state object from it.
 
-Overview, the `connect()` function connects a React component to a Redux store, it provides its connected component with the pieces of the data it needs from the store, and the functions it can use to dispatch actions to the store
+> React App => Action => Redux Layer
+> Redux Layer => State Object => React App
 
-#### 8. What is provider in react redux?
+<p align="center"><img src="https://github.com/101t/react-tutorial/blob/master/static/redux/redux-on-react-components.png" ></p>
 
-The `<Provider />` makes the **Redux** store available to any nested components that have been wrapped in the `connect()` function, since any React Component in a React Redux app can be connected, most applications will render a `<Provider />` at the top level, with the entire app's component tree inside of it.
+When we do integration with react then we need React-Redux as bridge library which can help us to allow communication between react components and redux library, because React and Redux does not have a direct relationship, so Redux controls an app's state changes, while React renders the view of states.
 
-#### 9. What is flux in ReactJS?
-
-**Flux** is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework, and you cand start using **Flux** immediately without a lot of new code
-
-## Managin React State with Redux
+### Managing React State with Redux
 
 Using `state` built in React components is very temping, but when application gets more complex and lots of parts have to communicate with each other debugging it becomes really hard task, it's difficult to see the data flow and how various components communicate.
 
@@ -111,3 +184,4 @@ render(
     <Counter />
   </Provider> , document.getElementById('root'));
 ```
+
