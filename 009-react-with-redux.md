@@ -29,6 +29,7 @@ Essentially Redux allows us to build React App as you are but delegate all the s
 ### Three fundamental Principles:
 
 1. Single source of truth:
+
 The state of your whole application is stored in an object tree within a single store, this makes it easy to create universal apps.
 ```jsx
 console.log(store.getState())
@@ -51,6 +52,7 @@ console.log(store.getState())
 ```
 
 2. State is read-only:
+
 The only way to change the state is to emit an action, an object describing what happened, this ensures that neither the views nor the network callbacks will ever write directly to the state, all the changes are centralized and happen one by one in a strict order.
 ```jsx
 store.dispatch({
@@ -65,6 +67,7 @@ store.dispatch({
 ```
 
 3. Changes are made with pure functions:
+
 To specify how the state tree is transformed by actions, you write pure reducer, Reducer are just a pure function that take the previous state and an action, and return the next state, remember to return the new state objects, instead of mutating the previous state.
 You can start with a single reducer, and as your app grows, split it off smaller reducers that manage specific parts of the state tree, reducer are just a function that control the order which they are called, pass additional data, or even make reusable reducers for common tasks such as pagination.
 
